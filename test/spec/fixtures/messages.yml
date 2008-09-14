@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  destination: MyString
+  body: MyText
+  orginator_type: MyString
+  orginator: MyString
+  message_type: MyString
+
+two:
+  destination: MyString
+  body: MyText
+  orginator_type: MyString
+  orginator: MyString
+  message_type: MyString

@@ -1,0 +1,90 @@
+= acts_as_sms
+
+This plugin enables you to send SMS and receive delivery reports by integrating with Cellsynt's SMS gateway via a simple proprietary HTTP interface. 
+
+== DESCRIPTION:
+
+Rails plugin for integrating with Cellsynt's SMS gateway via HTTP interface.
+
+== FEATURES/PROBLEMS:
+
+* Add generators
+* Add controller to handle receipt
+
+== SYNOPSIS:
+                                  
+sms = Message.new :destination => 0046707123123, :body => "Message to send"
+sms.send_message
+
+== REQUIREMENTS:
+
+* FIX (list of requirements)
+
+== INSTALL:
+
+Create two migrations, one for the message and one for the receipt
+
+create_table :messages do |t|
+  t.string :destination
+  t.text :body
+  t.string :originator_type
+  t.string :originator
+  t.string :message_type
+  t.timestamps
+end
+
+create_table :delivery_receipts do |t|
+  t.references :message
+  t.string :tracking_id, :limit => 32
+  t.string :status, :limit => 20
+  t.timestamps
+end
+
+Create a yml file for authentication settings in config/sms.yml
+
+development:
+  username: equipe
+  password: secret
+  sms_url: http://se-1.cellsynt.net/sms.php
+  
+test:
+  username: equipe
+  password: secret
+  sms_url: http://se-1.cellsynt.net/sms.php
+  
+production:
+  username: equipe
+  password: secret
+  sms_url: http://se-1.cellsynt.net/sms.php
+
+In you Message model, just add acts_as_sms
+
+class Message < ActiveRecord::Base
+  acts_as_sms :allow_concat => 6
+end
+
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2008 Jon Stenqvist
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

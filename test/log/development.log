@@ -1,0 +1,429 @@
+  [4;36;1mSQL (0.000234)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000160)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.001241)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.018127)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000241)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000113)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMessages (20080914140402)
+  [4;36;1mSQL (0.000086)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.003944)[0m   [0mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "destination" varchar(255) DEFAULT NULL NULL, "body" text DEFAULT NULL NULL, "orginator_type" varchar(255) DEFAULT NULL NULL, "orginator" varchar(255) DEFAULT NULL NULL, "message_type" varchar(255) DEFAULT 'text' NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.001096)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080914140402')[0m
+  [4;35;1mSQL (0.000206)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000215)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000051)[0m   [0mPRAGMA index_list("messages")[0m
+  [4;36;1mSQL (0.000197)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000350)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000206)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000050)[0m   [0mPRAGMA index_list("messages")[0m
+  [4;36;1mSQL (0.000151)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000177)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001382)[0m   [0;1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "destination" varchar(255) DEFAULT NULL NULL, "body" text DEFAULT NULL NULL, "orginator_type" varchar(255) DEFAULT NULL NULL, "orginator" varchar(255) DEFAULT NULL NULL, "message_type" varchar(255) DEFAULT 'text' NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.000189)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.004367)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.001135)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000225)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000091)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.001028)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20080914140402')[0m
+  [4;36;1mSQL (0.000215)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000186)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001428)[0m   [0;1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "destination" varchar(255) DEFAULT NULL NULL, "body" text DEFAULT NULL NULL, "orginator_type" varchar(255) DEFAULT NULL NULL, "orginator" varchar(255) DEFAULT NULL NULL, "message_type" varchar(255) DEFAULT 'text' NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.000253)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.019713)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.007857)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000247)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000099)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.001816)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20080914140402')[0m
+  [4;36;1mSQL (0.000203)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000391)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000225)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000051)[0m   [0mPRAGMA index_list("messages")[0m
+  [4;36;1mSQL (0.000153)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000176)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001561)[0m   [0;1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "destination" varchar(255) DEFAULT NULL NULL, "body" text DEFAULT NULL NULL, "orginator_type" varchar(255) DEFAULT NULL NULL, "orginator" varchar(255) DEFAULT NULL NULL, "message_type" varchar(255) DEFAULT 'text' NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.000181)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001058)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.001160)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000257)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000092)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.001055)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20080914140402')[0m
+  [4;36;1mSQL (0.000215)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000183)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001420)[0m   [0;1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "destination" varchar(255) DEFAULT NULL NULL, "body" text DEFAULT NULL NULL, "orginator_type" varchar(255) DEFAULT NULL NULL, "orginator" varchar(255) DEFAULT NULL NULL, "message_type" varchar(255) DEFAULT 'text' NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.000196)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001090)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.001162)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000225)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000110)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.001089)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20080914140402')[0m
+  [4;36;1mSQL (0.000206)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000358)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000212)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000052)[0m   [0mPRAGMA index_list("messages")[0m
+  [4;36;1mSQL (0.000155)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000174)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001368)[0m   [0;1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "destination" varchar(255) DEFAULT NULL NULL, "body" text DEFAULT NULL NULL, "orginator_type" varchar(255) DEFAULT NULL NULL, "orginator" varchar(255) DEFAULT NULL NULL, "message_type" varchar(255) DEFAULT 'text' NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.000182)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001268)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.001130)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000222)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000092)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.001081)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20080914140402')[0m
+  [4;36;1mSQL (0.000223)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000187)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001426)[0m   [0;1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "destination" varchar(255) DEFAULT NULL NULL, "body" text DEFAULT NULL NULL, "orginator_type" varchar(255) DEFAULT NULL NULL, "orginator" varchar(255) DEFAULT NULL NULL, "message_type" varchar(255) DEFAULT 'text' NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.000253)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.016990)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.001133)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000263)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000096)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.001060)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20080914140402')[0m
+  [4;36;1mSQL (0.000495)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000176)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000205)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000176)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMessages (20080914140402)
+  [4;36;1mSQL (0.000150)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001364)[0m   [0mDROP TABLE "messages"[0m
+  [4;36;1mSQL (0.014588)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20080914140402'[0m
+  [4;35;1mSQL (0.000151)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000117)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000164)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000419)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000109)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMessages (20080914140402)
+  [4;36;1mSQL (0.000085)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000139)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.001393)[0m   [0;1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "parent_id" integer DEFAULT NULL NULL, "destination" varchar(255) DEFAULT NULL NULL, "body" text DEFAULT NULL NULL, "originator_type" varchar(255) DEFAULT NULL NULL, "originator" varchar(255) DEFAULT NULL NULL, "message_type" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.023791)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080914140402')[0m
+  [4;36;1mSQL (0.000215)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000209)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000050)[0m   [0;1mPRAGMA index_list("messages")[0m
+  [4;36;1mSQL (0.000502)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000174)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMessages (20080914140402)
+  [4;36;1mSQL (0.000149)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000150)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000162)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000207)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000050)[0m   [0;1mPRAGMA index_list("messages")[0m
+  [4;36;1mSQL (0.000202)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000360)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000211)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000051)[0m   [0mPRAGMA index_list("messages")[0m
+  [4;36;1mSQL (0.000157)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000183)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001498)[0m   [0;1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "parent_id" integer DEFAULT NULL NULL, "destination" varchar(255) DEFAULT NULL NULL, "body" text DEFAULT NULL NULL, "originator_type" varchar(255) DEFAULT NULL NULL, "originator" varchar(255) DEFAULT NULL NULL, "message_type" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.000187)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001177)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.001153)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000224)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000097)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.001134)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20080914140402')[0m
+  [4;36;1mSQL (0.000500)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000191)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMessages (20080914140402)
+  [4;36;1mSQL (0.000153)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateDeliveryReceipts (20080914173248)
+  [4;35;1mSQL (0.000152)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000192)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.001412)[0m   [0mCREATE TABLE "delivery_receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message_id" integer DEFAULT NULL NULL, "tracking_id" varchar(32) DEFAULT NULL NULL, "status" varchar(20) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.001181)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080914173248')[0m
+  [4;35;1mSQL (0.000230)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000245)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000052)[0m   [0mPRAGMA index_list("delivery_receipts")[0m
+  [4;36;1mSQL (0.000048)[0m   [0;1mPRAGMA index_list("messages")[0m
+  [4;36;1mSQL (0.000197)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000444)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000251)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000063)[0m   [0mPRAGMA index_list("delivery_receipts")[0m
+  [4;36;1mSQL (0.000056)[0m   [0;1mPRAGMA index_list("messages")[0m
+  [4;35;1mSQL (0.000162)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000181)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001541)[0m   [0mCREATE TABLE "delivery_receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message_id" integer DEFAULT NULL NULL, "tracking_id" varchar(32) DEFAULT NULL NULL, "status" varchar(20) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.000185)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001212)[0m   [0mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "parent_id" integer DEFAULT NULL NULL, "destination" varchar(255) DEFAULT NULL NULL, "body" text DEFAULT NULL NULL, "originator_type" varchar(255) DEFAULT NULL NULL, "originator" varchar(255) DEFAULT NULL NULL, "message_type" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.000217)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001177)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (0.001161)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.000264)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000090)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (0.001090)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20080914173248')[0m
+  [4;36;1mSQL (0.001302)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20080914140402')[0m
+  [4;36;1mSQL (0.000210)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000183)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001376)[0m   [0;1mCREATE TABLE "delivery_receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message_id" integer DEFAULT NULL NULL, "tracking_id" varchar(32) DEFAULT NULL NULL, "status" varchar(20) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.000186)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.014725)[0m   [0;1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "parent_id" integer DEFAULT NULL NULL, "destination" varchar(255) DEFAULT NULL NULL, "body" text DEFAULT NULL NULL, "originator_type" varchar(255) DEFAULT NULL NULL, "originator" varchar(255) DEFAULT NULL NULL, "message_type" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.000319)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001191)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.001083)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000325)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000099)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.003595)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20080914173248')[0m
+  [4;35;1mSQL (0.001031)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20080914140402')[0m
+  [4;36;1mSQL (0.000227)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000510)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001560)[0m   [0;1mDROP TABLE "delivery_receipts"[0m
+  [4;35;1mSQL (0.001200)[0m   [0mCREATE TABLE "delivery_receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message_id" integer DEFAULT NULL NULL, "tracking_id" varchar(32) DEFAULT NULL NULL, "status" varchar(20) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.000289)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.017946)[0m   [0mDROP TABLE "messages"[0m
+  [4;36;1mSQL (0.001229)[0m   [0;1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "parent_id" integer DEFAULT NULL NULL, "destination" varchar(255) DEFAULT NULL NULL, "body" text DEFAULT NULL NULL, "originator_type" varchar(255) DEFAULT NULL NULL, "originator" varchar(255) DEFAULT NULL NULL, "message_type" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.000349)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000206)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000204)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000447)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000251)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000067)[0m   [0mPRAGMA index_list("delivery_receipts")[0m
+  [4;36;1mSQL (0.000048)[0m   [0;1mPRAGMA index_list("messages")[0m
+  [4;35;1mSQL (0.000159)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000183)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001425)[0m   [0mCREATE TABLE "delivery_receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message_id" integer DEFAULT NULL NULL, "tracking_id" varchar(32) DEFAULT NULL NULL, "status" varchar(20) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.000183)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001238)[0m   [0mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "parent_id" integer DEFAULT NULL NULL, "destination" varchar(255) DEFAULT NULL NULL, "body" text DEFAULT NULL NULL, "originator_type" varchar(255) DEFAULT NULL NULL, "originator" varchar(255) DEFAULT NULL NULL, "message_type" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.000215)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001134)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (0.001157)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.000263)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000090)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (0.001194)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20080914173248')[0m
+  [4;36;1mSQL (0.001112)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20080914140402')[0m
+  [4;36;1mSQL (0.000232)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000144)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.001518)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.001090)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000198)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000111)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000083)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateMessages (20080914140402)
+  [4;35;1mSQL (0.000083)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.015700)[0m   [0;1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "destination" varchar(255) DEFAULT NULL NULL, "body" text DEFAULT NULL NULL, "originator_type" varchar(255) DEFAULT NULL NULL, "originator" varchar(255) DEFAULT NULL NULL, "message_type" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.001137)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080914140402')[0m
+Migrating to CreateDeliveryReceipts (20080914173248)
+  [4;36;1mSQL (0.000198)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001230)[0m   [0mCREATE TABLE "delivery_receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message_id" integer DEFAULT NULL NULL, "tracking_id" varchar(32) DEFAULT NULL NULL, "status" varchar(20) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.004254)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080914173248')[0m
+  [4;35;1mSQL (0.000258)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000248)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000050)[0m   [0mPRAGMA index_list("delivery_receipts")[0m
+  [4;36;1mSQL (0.000046)[0m   [0;1mPRAGMA index_list("messages")[0m
+  [4;36;1mSQL (0.000581)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000239)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000194)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateMessages (20080914140402)
+  [4;35;1mSQL (0.000189)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDeliveryReceipts (20080914173248)
+  [4;36;1mSQL (0.000189)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000123)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000299)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000260)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000049)[0m   [0;1mPRAGMA index_list("delivery_receipts")[0m
+  [4;35;1mSQL (0.000047)[0m   [0mPRAGMA index_list("messages")[0m
+  [4;36;1mSQL (0.000198)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000440)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000250)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000063)[0m   [0mPRAGMA index_list("delivery_receipts")[0m
+  [4;36;1mSQL (0.000048)[0m   [0;1mPRAGMA index_list("messages")[0m
+  [4;35;1mSQL (0.000163)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000186)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001453)[0m   [0mCREATE TABLE "delivery_receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message_id" integer DEFAULT NULL NULL, "tracking_id" varchar(32) DEFAULT NULL NULL, "status" varchar(20) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.000231)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001208)[0m   [0mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "destination" varchar(255) DEFAULT NULL NULL, "body" text DEFAULT NULL NULL, "originator_type" varchar(255) DEFAULT NULL NULL, "originator" varchar(255) DEFAULT NULL NULL, "message_type" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.000216)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001139)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (0.004777)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.000268)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000091)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (0.001098)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20080914173248')[0m
+  [4;36;1mSQL (0.001070)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20080914140402')[0m
