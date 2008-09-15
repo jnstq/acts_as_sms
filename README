@@ -14,10 +14,15 @@ end
 
 You can also pass default values for :message_type, :originator_type, :originator, :allow_concat, :message_type => 'text' to the acts_as_sms method.
 
-sms = ShortMessage.new :destination => 0046707123123, :body => "Message to send"
-sms.send_message
+class DeliveryReceipt < ActiveRecord::Base
+  belongs_to :short_message
+end
 
-sms.sent? # => is true if received message hash from sms gateway.
+sms = ShortMessage.new :destination => "0046707123123", :body => "Message to send"
+sms.valid? # => true, the send it
+sms.send_message # send_message will also run validation and save it.
+
+sms.sent? # => is true if received tracking id from sms gateway.
 
 If callback from sms gateway is enabled. you are able to track the status for of the message.
 
@@ -42,6 +47,10 @@ if httpary gem is missing run
 Create migrations, models and controllers
 	
 	./script/generate short_message_service short_message delivery_receipt
+	
+Run the pending migrations
+	
+	rake db:migrate
 
 Open config/short_message.yml and enter your account settings for cellsynt sms service.
 Login to http://sms.cellsynt.net, under integration set your delivery receipt url to
