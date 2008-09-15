@@ -1,1 +1,4 @@
-require 'equipe/acts_as_sms'
+config.gem "httparty"
+config.after_initialize do
+  ActiveRecord::Base.send(:include, Equipe::ActsAsSms)
+end

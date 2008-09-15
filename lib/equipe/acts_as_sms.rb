@@ -124,7 +124,3 @@ module Equipe
 
   end
 end
-
-unless ActiveRecord::Base.included_modules.include?(Equipe::ActsAsSms)
-  ActiveRecord::Base.send(:include, Equipe::ActsAsSms)
-end

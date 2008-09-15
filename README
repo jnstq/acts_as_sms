@@ -13,6 +13,10 @@ Rails plugin for integrating with Cellsynt's SMS gateway via HTTP interface.
 
 == SYNOPSIS:
                                   
+class Message < ActiveRecord::Base
+  acts_as_sms
+end
+
 sms = Message.new :destination => 0046707123123, :body => "Message to send"
 sms.send_message
 
@@ -23,6 +27,8 @@ sms.sent? # => true
 httparty
 
 == INSTALL:
+
+Before installing the plugin, make sure you have the excellent httparty gem.
 
 sudo gem install httparty
 
@@ -50,17 +56,17 @@ Create a yml file for authentication settings in config/sms.yml
 development:
   username: jnstq
   password: secret
-  sms_url: http://se-1.cellsynt.net/sms.php
+  sms_url: http://sms-gateway-url.com/sms.php
   
 test:
   username: jnstq
   password: secret
-  sms_url: http://se-1.cellsynt.net/sms.php
+  sms_url: http://sms-gateway-url.com/sms.php
   
 production:
   username: jnstq
   password: secret
-  sms_url: http://se-1.cellsynt.net/sms.php
+  sms_url: http://sms-gateway-url.com/sms.php
 
 In you Message model, just add acts_as_sms
 
