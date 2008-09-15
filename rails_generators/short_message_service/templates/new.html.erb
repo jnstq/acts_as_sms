@@ -1,0 +1,24 @@
+<h1>Send SMS</h1>
+<%%= error_messages_for(:<%=short_message_model_name.underscore%>) %>
+<%% form_for @<%=short_message_model_name.underscore%> do |f| -%>
+
+<div>
+	<%%= f.label :destination, "Cellphone" %>
+	<%%= f.text_field :destination %>
+</div>
+<div>
+	<%%= f.label :originator, "Originator" %>
+	<%%= f.text_field :originator %>
+</div>
+<div>
+	<%%= f.label :originator_type, "Originator Type" %>
+	<%%= f.select :originator_type, ['numeric', 'shortcode', 'alpha'] %>
+</div>
+<div>
+	<%%= f.label :body, "Message" %>
+	<%%= f.text_area :body %>
+</div>
+<div>
+	<%%= f.submit "Submit", :disable_with => 'Submiting...' %>
+</div>
+<%% end -%>

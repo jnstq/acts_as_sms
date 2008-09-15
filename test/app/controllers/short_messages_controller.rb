@@ -12,7 +12,7 @@ class ShortMessagesController < ApplicationController
     @short_message = ShortMessage.new(params[:short_message])
     
     respond_to do |format|
-      if @short_message.save
+      if @short_message.send_message
         flash[:notice] = 'ShortMessage was successfully sent.'
         format.html { redirect_to(:action => 'index') }
         format.xml { render :xml => @short_message, :status => :created, :location => @short_message }

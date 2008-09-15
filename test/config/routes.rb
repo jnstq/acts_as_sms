@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :short_messages
   map.delivery_report 'delivery_receipts/report', :controller => 'delivery_receipts', :action => 'report'
+  map.resources :short_messages
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
