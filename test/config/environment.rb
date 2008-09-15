@@ -4,7 +4,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   config.plugin_paths += ['vendor/plugins', "#{Rails.root}/../.."]
-  config.reload_plugins = true
+  # config.reload_plugins = true
   config.time_zone = 'UTC'
   config.action_controller.session = {
     :session_key => '_test_session',
