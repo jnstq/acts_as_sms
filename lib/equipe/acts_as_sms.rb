@@ -47,7 +47,7 @@ module Equipe
       def sms_configuration
         filename = "#{Rails.root}/config/sms.yml"
         fail "Configuration file not found in config/sms.yml" unless File.exist?(filename)
-        @sms_configuration ||= File.open(filename) { |file| YAML.load(file) }[Rails.env]
+        @sms_configuration ||= File.open(filename) { |file| YAML.load(file)[Rails.env] }
       end
     end
 
