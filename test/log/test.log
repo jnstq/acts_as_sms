@@ -481,3 +481,35 @@
 - fc444ec93ac7ebdf6a93816a11d23041
 ', '2008-09-14 20:00:03')[0m
   [4;35;1mMessage Create (0.000357)[0m   [0mINSERT INTO "messages" ("originator_type", "message_type", "updated_at", "body", "destination", "originator", "created_at") VALUES('numeric', 'text', '2008-09-14 20:00:03', 'Message', '0046707293274', '46707293274', '2008-09-14 20:00:03')[0m
+  [4;36;1mMessage Create (0.000445)[0m   [0;1mINSERT INTO "messages" ("originator_type", "message_type", "updated_at", "body", "destination", "originator", "created_at") VALUES('numeric', 'text', '2008-09-15 14:55:15', 'Message', '0046707293274', '46707293274', '2008-09-15 14:55:15')[0m
+  [4;35;1mDeliveryReceipt Create (0.000130)[0m   [0mINSERT INTO "delivery_receipts" ("status", "message_id", "updated_at", "tracking_id", "created_at") VALUES('sent', 1, '2008-09-15 14:55:15', '--- 
+- fc444ec93ac7ebdf6a93816a11d23041
+', '2008-09-15 14:55:15')[0m
+  [4;36;1mSQL (0.000134)[0m   [0;1mSELECT count(*) AS count_all FROM "delivery_receipts" WHERE ("delivery_receipts".message_id = 1) [0m
+  [4;35;1mMessage Create (0.000256)[0m   [0mINSERT INTO "messages" ("originator_type", "message_type", "updated_at", "body", "destination", "originator", "created_at") VALUES('numeric', 'text', '2008-09-15 14:55:15', 'Message', '0046707293274', '46707293274', '2008-09-15 14:55:15')[0m
+  [4;36;1mDeliveryReceipt Create (0.000103)[0m   [0;1mINSERT INTO "delivery_receipts" ("status", "message_id", "updated_at", "tracking_id", "created_at") VALUES('sent', 1, '2008-09-15 14:55:15', '--- 
+- fc444ec93ac7ebdf6a93816a11d23041
+', '2008-09-15 14:55:15')[0m
+  [4;35;1mSQL (0.000134)[0m   [0mSELECT count(*) AS count_all FROM "delivery_receipts" WHERE ("delivery_receipts".message_id = 1) [0m
+  [4;36;1mDeliveryReceipt Load (0.000188)[0m   [0;1mSELECT * FROM "delivery_receipts" WHERE ("delivery_receipts".message_id = 1) [0m
+  [4;35;1mMessage Create (0.000464)[0m   [0mINSERT INTO "messages" ("originator_type", "message_type", "updated_at", "body", "destination", "originator", "created_at") VALUES('numeric', 'text', '2008-09-15 14:55:15', 'Message', '0046707293274', '46707293274', '2008-09-15 14:55:15')[0m
+  [4;36;1mDeliveryReceipt Create (0.000161)[0m   [0;1mINSERT INTO "delivery_receipts" ("status", "message_id", "updated_at", "tracking_id", "created_at") VALUES('sent', 1, '2008-09-15 14:55:15', '--- 
+- fc444ec93ac7ebdf6a93816a11d23041
+', '2008-09-15 14:55:15')[0m
+  [4;35;1mMessage Create (0.000364)[0m   [0mINSERT INTO "messages" ("originator_type", "message_type", "updated_at", "body", "destination", "originator", "created_at") VALUES('numeric', 'text', '2008-09-15 14:55:15', 'Message', '0046707293274', '46707293274', '2008-09-15 14:55:15')[0m
+  [4;36;1mMessage Create (0.000553)[0m   [0;1mINSERT INTO "messages" ("originator_type", "message_type", "updated_at", "body", "destination", "originator", "created_at") VALUES('numeric', 'text', '2008-09-18 14:00:08', 'Message', '0046707293274', '46707293274', '2008-09-18 14:00:08')[0m
+  [4;35;1mDeliveryReceipt Create (0.000233)[0m   [0mINSERT INTO "delivery_receipts" ("status", "message_id", "updated_at", "tracking_id", "created_at") VALUES('sent', 1, '2008-09-18 14:00:08', '--- 
+- fc444ec93ac7ebdf6a93816a11d23041
+', '2008-09-18 14:00:08')[0m
+  [4;36;1mSQL (0.000195)[0m   [0;1mSELECT count(*) AS count_all FROM "delivery_receipts" WHERE ("delivery_receipts".message_id = 1) [0m
+  [4;35;1mMessage Create (0.000473)[0m   [0mINSERT INTO "messages" ("originator_type", "message_type", "updated_at", "body", "destination", "originator", "created_at") VALUES('numeric', 'text', '2008-09-18 14:00:08', 'Message', '0046707293274', '46707293274', '2008-09-18 14:00:08')[0m
+  [4;36;1mDeliveryReceipt Create (0.000161)[0m   [0;1mINSERT INTO "delivery_receipts" ("status", "message_id", "updated_at", "tracking_id", "created_at") VALUES('sent', 1, '2008-09-18 14:00:08', '--- 
+- fc444ec93ac7ebdf6a93816a11d23041
+', '2008-09-18 14:00:08')[0m
+  [4;35;1mSQL (0.000194)[0m   [0mSELECT count(*) AS count_all FROM "delivery_receipts" WHERE ("delivery_receipts".message_id = 1) [0m
+  [4;36;1mDeliveryReceipt Load (0.000279)[0m   [0;1mSELECT * FROM "delivery_receipts" WHERE ("delivery_receipts".message_id = 1) [0m
+  [4;35;1mMessage Create (0.000454)[0m   [0mINSERT INTO "messages" ("originator_type", "message_type", "updated_at", "body", "destination", "originator", "created_at") VALUES('numeric', 'text', '2008-09-18 14:00:08', 'Message', '0046707293274', '46707293274', '2008-09-18 14:00:08')[0m
+  [4;36;1mDeliveryReceipt Create (0.000180)[0m   [0;1mINSERT INTO "delivery_receipts" ("status", "message_id", "updated_at", "tracking_id", "created_at") VALUES('sent', 1, '2008-09-18 14:00:08', '--- 
+- fc444ec93ac7ebdf6a93816a11d23041
+', '2008-09-18 14:00:08')[0m
+  [4;35;1mMessage Create (0.000332)[0m   [0mINSERT INTO "messages" ("originator_type", "message_type", "updated_at", "body", "destination", "originator", "created_at") VALUES('numeric', 'text', '2008-09-18 14:00:08', 'Message', '0046707293274', '46707293274', '2008-09-18 14:00:08')[0m

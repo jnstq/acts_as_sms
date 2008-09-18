@@ -1,4 +1,1 @@
-config.gem "httparty"
-config.after_initialize do
-  ActiveRecord::Base.send(:include, Equipe::ActsAsSms)
-end
+require File.dirname(__FILE__) + '/rails/init'
