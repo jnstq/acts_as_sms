@@ -1,0 +1,22 @@
+<h1>Sent short messages</h1>
+<p>All messages sent by this application</p>
+
+<% for short_message in @short_messages %>
+<div>
+	<p>
+		<strong>Destination:</strong> <%= short_message.destination %>
+	</p>
+	<p>
+		<strong>Originator:</strong> <%= short_message.originator %>
+	</p>
+	<p>
+		<strong>Originator type:</strong> <%= short_message.originator_type %>
+	</p>
+	<p>
+		<strong>Message:</strong> <%= short_message.body %>
+	</p>
+</div>
+<hr>
+<% end %>
+
+<p><%= link_to 'new short message', new_short_message_path %></p>

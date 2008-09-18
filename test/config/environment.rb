@@ -18,7 +18,7 @@ Rails::Initializer.run do |config|
   config.load_paths += ['../lib'] 
   config.plugin_paths = ['vendor/plugins', "#{Rails.root}/.."]
   config.plugin_locators = [NoneRecursiveFileSystemLocator]
-  config.reload_plugins = true
+  # config.reload_plugins = true
   config.time_zone = 'UTC'
   config.action_controller.session = {
     :session_key => '_test_session',

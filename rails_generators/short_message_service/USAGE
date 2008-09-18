@@ -1,1 +1,5 @@
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Description:
+Will stub out models and controllers needed for short message service. The first args is the model name for the message. The second is the model name for delivery receipt. Controller name will be the pluralized version of the given names. I recommend to use the default names short_message and delivery_receipt.
+	
+Examples:
+  ./script/generate short_message_service short_message delivery_receipt

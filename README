@@ -6,21 +6,29 @@ This plugin enables you to send SMS and receive delivery reports by integrating 
 
 Rails plugin for integrating with Cellsynt's SMS gateway via HTTP interface.
 
-== FEATURES/PROBLEMS:
-
-* Add generators
-* Add controller to handle receipt
-
 == SYNOPSIS:
                                   
-class Message < ActiveRecord::Base
+class ShortMessage < ActiveRecord::Base
   acts_as_sms
 end
 
-sms = Message.new :destination => 0046707123123, :body => "Message to send"
-sms.send_message
+You can also pass default values for :message_type, :originator_type, :originator, :allow_concat, :message_type => 'text' to the acts_as_sms method.
 
-sms.sent? # => true
+class DeliveryReceipt < ActiveRecord::Base
+  belongs_to :short_message
+end
+
+sms = ShortMessage.new :destination => "0046707123123", :body => "Message to send"
+sms.valid? # => true, the send it
+sms.send_message # send_message will also run validation and save it.
+
+sms.sent? # => is true if received tracking id from sms gateway.
+
+If callback from sms gateway is enabled. you are able to track the status for of the message.
+
+sms.delivered?
+sms.buffered?
+sms.failed?
 
 == REQUIREMENTS:
 
@@ -28,52 +36,27 @@ httparty
 
 == INSTALL:
 
-Before installing the plugin, make sure you have the excellent httparty gem.
+Install the plugin with
+	
+	script/plugin install git://github.com/jnstq/acts_as_sms.git
 
-sudo gem install httparty
+if httpary gem is missing run
+ 
+  rake gems:install
 
+Create migrations, models and controllers
+	
+	./script/generate short_message_service short_message delivery_receipt
+	
+Run the pending migrations
+	
+	rake db:migrate
 
-Create two migrations, one for the message and one for the receipt
+Open config/short_message.yml and enter your account settings for cellsynt sms service.
+Login to http://sms.cellsynt.net, under integration set your delivery receipt url to
+http://yourdomain.com/delivery_receipts/report.
 
-create_table :messages do |t|
-  t.string :destination
-  t.text :body
-  t.string :originator_type
-  t.string :originator
-  t.string :message_type
-  t.timestamps
-end
-
-create_table :delivery_receipts do |t|
-  t.references :message
-  t.string :tracking_id, :limit => 32
-  t.string :status, :limit => 20
-  t.timestamps
-end
-
-Create a yml file for authentication settings in config/sms.yml
-
-development:
-  username: jnstq
-  password: secret
-  sms_url: http://sms-gateway-url.com/sms.php
-  
-test:
-  username: jnstq
-  password: secret
-  sms_url: http://sms-gateway-url.com/sms.php
-  
-production:
-  username: jnstq
-  password: secret
-  sms_url: http://sms-gateway-url.com/sms.php
-
-In you Message model, just add acts_as_sms
-
-class Message < ActiveRecord::Base
-  acts_as_sms :allow_concat => 6
-end
-
+Restart your server and browse to /short_messages, you should now be able to send sms.
 
 == LICENSE:
 

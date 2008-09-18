@@ -1,0 +1,5 @@
+.DS_Store
+test/tmp/**/*
+test/log/*.log
+test/db/migrate/*.rb
+test/db/*.sqlite3

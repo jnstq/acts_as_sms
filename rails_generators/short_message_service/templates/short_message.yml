@@ -1,0 +1,15 @@
+# Username and password for Cellsynt SMS gateway HTTP interface
+development:
+  username: user
+  password: secret
+  sms_url: http://sms.gateway.com/sms.php
+  
+test:
+  username: user
+  password: secret
+  sms_url: http://sms.gateway.com/sms.php
+  
+production:
+  username: user
+  password: secret
+  sms_url: http://sms.gateway.com/sms.php

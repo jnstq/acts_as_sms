@@ -10,7 +10,7 @@ module Equipe
 
     module ActMethods
       def acts_as_sms(options = {})
-        options.reverse_merge! :allow_concat => 6, :message_type => 'text', :originator_type => 'numeric'
+        options.reverse_merge! :allow_concat => 6, :message_type => 'text', :originator_type => 'alpha', :delivery_receipt_class_name => "DeliveryReceipt"
         unless included_modules.include?(Equipe::ActsAsSms::InstanceMethods)
           class_inheritable_hash :acts_as_sms_options
           self.acts_as_sms_options = {}
@@ -19,35 +19,27 @@ module Equipe
           include HTTParty
           class_eval do
             validation_for_sms_message
-            has_many :delivery_receipts
+            has_many :delivery_receipts, :class_name => options[:delivery_receipt_class_name]
           end
-          build_delivery_receipt_model(self.name)
         end
         acts_as_sms_options.update(options)
       end
       private
-      def build_delivery_receipt_model(base_class_name)
-        unless defined?(DeliveryReceipt)
-          Object.const_set(:DeliveryReceipt, Class.new(ActiveRecord::Base)).class_eval do
-            set_table_name :delivery_receipts
-            belongs_to :message, :class_name => "#{base_class_name}"
-          end
-        end
-      end
       def validation_for_sms_message
         validates_inclusion_of :originator_type, :in => %w[numeric shortcode alpha], :allow_blank => false, :allow_nil => false
         validates_length_of :originator, :within => 1..15, :if => Proc.new{|sms| sms.originator_type_is_numeric? || sms.originator_type_is_shortcode?}
         validates_format_of :originator, :with => /^[^00]\d+$/, :if => :originator_type_is_numeric?
         validates_format_of :originator, :with => /^[a-zA-Z0-9]{1,11}$/, :if => :originator_type_is_alpha?
         validates_format_of :destination, :with => /^[00]{2}[^0]+\d+$/
+        validates_presence_of :body
       end
     end
 
     module ClassMethods
       def sms_configuration
-        filename = "#{Rails.root}/config/sms.yml"
-        fail "Configuration file not found in config/sms.yml" unless File.exist?(filename)
-        @sms_configuration ||= File.open(filename) { |file| YAML.load(file) }[Rails.env]
+        filename = "#{Rails.root}/config/short_message.yml"
+        fail "Configuration file not found in config/short_message.yml" unless File.exist?(filename)
+        @sms_configuration ||= File.open(filename) { |file| YAML.load(file)[Rails.env] }
       end
     end
 
@@ -61,6 +53,18 @@ module Equipe
       
       def sent?
         !delivery_receipts.empty?
+      end
+      
+      def delivered?
+        delivery_receipts.all? {|report| report.status == 'delivered' }
+      end
+      
+      def buffered?
+        delivery_receipts.any? {|report| report.status == 'buffered' }
+      end
+      
+      def failed?
+        delivery_receipts.any? {|report| report.status == 'failed' }
       end
 
       def send_message
