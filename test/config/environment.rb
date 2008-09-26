@@ -2,23 +2,9 @@ RAILS_GEM_VERSION = '2.1.0' unless defined? RAILS_GEM_VERSION
 
 require File.join(File.dirname(__FILE__), 'boot')
 
-class NoneRecursiveFileSystemLocator < Rails::Plugin::FileSystemLocator
-  private
-  def locate_plugins_under(base_path)
-    Dir.glob(File.join(base_path, '*')).inject([]) do |plugins, path|
-      if plugin = create_plugin(path)
-        plugins << plugin
-      end
-      plugins
-    end
-  end
-end
-
 Rails::Initializer.run do |config|
-  config.load_paths += ['../lib'] 
-  config.plugin_paths = ['vendor/plugins', "#{Rails.root}/.."]
-  config.plugin_locators = [NoneRecursiveFileSystemLocator]
-  # config.reload_plugins = true
+  config.load_paths += ['../lib']
+  config.plugin_paths += ["#{Rails.root}/.."]
   config.time_zone = 'UTC'
   config.action_controller.session = {
     :session_key => '_test_session',
