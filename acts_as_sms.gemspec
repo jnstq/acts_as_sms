@@ -1,7 +1,7 @@
 # ruby -e 'puts Dir["**/*"].select{|file|!File.directory?(file)}.inspect'
 Gem::Specification.new do |s|
   s.name     = "acts_as_sms"
-  s.version  = "0.1.3"
+  s.version  = "0.1.4"
   s.date     = "2008-09-26"
   s.summary  = "Rails plugin for sending sms"
   s.email    = "jon.stenqvist@gmail.com"
