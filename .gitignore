@@ -3,3 +3,4 @@ test/tmp/**/*
 test/log/*.log
 test/db/migrate/*.rb
 test/db/*.sqlite3
+test/config/short_message.yml
