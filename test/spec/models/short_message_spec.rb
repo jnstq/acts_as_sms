@@ -9,6 +9,13 @@ describe ShortMessage do
       :originator => "46707293274",
       :message_type => "text"
     }
+    
+    @valid_sms_configuration = {
+      "sms_url" => "http://sms.cellsynt.net/sms.php",
+      "psms_url" => "http://sms.cellsynt.net/sendsms.php",
+      "username"=>"user",
+      "password"=>"pass"
+    }
   end
 
   it "should create a new instance given valid attributes" do
@@ -24,7 +31,7 @@ describe ShortMessage do
     end
   end
 
-  describe "validation" do
+  describe "attribute and validation" do
     describe "destination" do
       before(:each) do
         @short_message = ShortMessage.new(@valid_attributes)
@@ -41,12 +48,16 @@ describe ShortMessage do
         @short_message.destination = ""
         @short_message.should_not be_valid
       end
+      it "should alias destination to session id" do
+        @short_message.destination = "12345"
+        @short_message.session_id.should eql("12345")
+      end
 
     end
     describe "body" do
       it "should validate precense of body" do
         @short_message = ShortMessage.new(@valid_attributes.merge(:body => ""))
-        @short_message.should_not be_valid        
+        @short_message.should_not be_valid
       end
       it "should allow up to 918 chars when concat is set to 6" do
         ShortMessage.acts_as_sms_options[:allow_concat] = 6
@@ -139,6 +150,7 @@ describe ShortMessage do
   describe "default settings" do
     before(:each) do
       @short_message = ShortMessage.new
+      ShortMessage.acts_as_sms_options[:allow_concat] = 6
     end
     it "should have default settings for type given at setup" do
       @short_message.message_type.should eql('text')
@@ -163,6 +175,7 @@ describe ShortMessage do
   end
 
   describe "configuration file from disk" do
+
     it "should raise error if configuration file is not found" do
       File.stub!(:exist?).and_return(false)
       lambda {
@@ -176,7 +189,62 @@ describe ShortMessage do
       YAML.should_receive(:load).once.and_return({"sms_url"=>"http://...", "username"=>"user", "password"=>"pass"})
       ShortMessage.sms_configuration
     end
+
+    it "should have instance reader for sms configuration" do
+      ShortMessage.new.sms_configuration.should eql(ShortMessage.sms_configuration)
+    end
+
   end
+
+  describe "premimum sms" do
+
+    before(:each) do
+      @short_message = ShortMessage.new(@valid_attributes)
+      @short_message.class.stub!(:post).and_return("OK: fc444ec93ac7ebdf6a93816a11d23041")
+      ShortMessage.stub!(:sms_configuration).and_return(@valid_sms_configuration)
+      @short_message.price = 10
+    end
+
+    it "should be premium sms" do
+      @short_message.should be_premium_sms
+    end
+
+    it "should pick the normal sms gateway" do
+      @short_message.price = nil
+      @short_message.send_sms_url.should eql(@valid_sms_configuration["sms_url"])
+    end
+
+    it "should pick the premium sms gateway" do
+      @short_message.send_sms_url.should eql(@valid_sms_configuration["psms_url"])
+    end
+
+    it "should validate destination as session id" do
+      @short_message.destination = "1:1136364712521:0046700123456"
+      @short_message.should be_valid
+    end
+    
+    it "should not include destination" do
+      @short_message.extract_options_for_sms.should_not have_key(:destination)
+    end
+    
+    it "should not include orginator_type" do
+      @short_message.extract_options_for_sms.should_not have_key(:originatortype)
+    end
+    
+    it "should not include orginator" do
+      @short_message.extract_options_for_sms.should_not have_key(:originator)
+    end
+    
+    it "should not include allowconcat" do
+      @short_message.extract_options_for_sms.should_not have_key(:allowconcat)
+    end
+    
+    it "should not include type" do
+      @short_message.extract_options_for_sms.should_not have_key(:type)
+    end
+    
+  end
+
 
   describe "send message" do
 
@@ -204,27 +272,39 @@ describe ShortMessage do
       @short_message.should_not be_sent
     end
 
+    describe "tracking id" do
+      before(:each) do
+        @short_message.class.stub!(:post).and_return("OK: fc444ec93ac7ebdf6a93816a11d23041,bc444ec93ac7ebdf6a93816a11d23041")
+      end
+
+      it "should save delivery report for each tracking id" do
+        @short_message.delivery_receipts.should_receive(:create!).once.with(hash_including(:tracking_id => 'fc444ec93ac7ebdf6a93816a11d23041'))
+        @short_message.delivery_receipts.should_receive(:create!).once.with(hash_including(:tracking_id => 'bc444ec93ac7ebdf6a93816a11d23041'))
+        @short_message.send_message
+      end
+    end
+
     describe "sms status" do
       before(:each) do
         @short_message.class.stub!(:post).and_return("OK: fc444ec93ac7ebdf6a93816a11d23041,bc444ec93ac7ebdf6a93816a11d23041")
-        @short_message.send_message        
+        @short_message.send_message
       end
-      
+
       it "should be delivered" do
         @short_message.delivery_receipts.update_all("status = 'delivered'")
         @short_message.should be_delivered
       end
-      
+
       it "should be buffered" do
         @short_message.delivery_receipts.first.update_attribute(:status, 'buffered')
         @short_message.should be_buffered
       end
-      
+
       it "should be be failed" do
         @short_message.delivery_receipts.first.update_attribute(:status, 'failed')
         @short_message.should be_failed
       end
-      
+
     end
 
   end

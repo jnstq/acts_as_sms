@@ -31,11 +31,13 @@ class ShortMessageServiceGenerator < Rails::Generator::Base
         m.directory "app/models"
         m.template "short_message.rb", "app/models/#{@short_message_model_name.underscore}.rb"
         m.template "delivery_receipt.rb", "app/models/#{@delivery_receipt_model_name.underscore}.rb"
+        m.template "incoming_short_message.rb", "app/models/incoming_short_message.rb"
       end
       unless options[:skip_controller]
         m.directory "app/controllers"
         m.template "short_messages_controller.rb", "app/controllers/#{short_message_table_name}_controller.rb"
         m.template "delivery_receipts_controller.rb", "app/controllers/#{delivery_receipt_table_name}_controller.rb"
+        m.template "incoming_short_messages_controller.rb", "app/controllers/incoming_short_messages_controller.rb"
       end
       unless options[:skip_views]
         m.directory "app/views/#{short_message_table_name}"
@@ -49,6 +51,7 @@ class ShortMessageServiceGenerator < Rails::Generator::Base
       unless options[:skip_routes]        
         m.route_resources short_message_model_name.pluralize.underscore
         m.route_name('delivery_report', 'delivery_receipts/report',  :controller => delivery_receipt_model_name.pluralize.underscore, :action => 'report')
+        m.route_name('incoming_sms', 'incoming_short_messages/incoming', :controller => 'incoming_short_messages', :action => 'incoming')
       end
       unless options[:skip_migration]
         @migration_name = "Create#{@short_message_model_name}And#{@delivery_receipt_model_name}"

@@ -4,6 +4,7 @@ class DeliveryReceiptsController < ApplicationController
     @delivery_receipt = DeliveryReceipt.find_by_tracking_id(params[:trackingid])
     @delivery_receipt.status = params[:status]
     @delivery_receipt.save
+    head :ok
   end
 
 end

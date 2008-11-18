@@ -1,15 +1,19 @@
 # Username and password for Cellsynt SMS gateway HTTP interface
 development:
-  username: equipe
-  password: hesthest
-  sms_url: http://se-1.cellsynt.net/sms.php
+  username: username
+  password: password
+  sms_url: http://sms.cellsynt.net/sms.php
+  psms_url: http://sms.cellsynt.net/sendsms.php
   
 test:
-  username: equipe
-  password: hesthest
-  sms_url: http://se-1.cellsynt.net/sms.php
+  username: username
+  password: password
+  sms_url: http://sms.cellsynt.net/sms.php
+  psms_url: http://sms.cellsynt.net/sendsms.php
   
 production:
-  username: equipe
-  password: hesthest
-  sms_url: http://se-1.cellsynt.net/sms.php  
+  username: username
+  password: password
+  sms_url: http://sms.cellsynt.net/sms.php
+  psms_url: http://sms.cellsynt.net/sendsms.php
+  

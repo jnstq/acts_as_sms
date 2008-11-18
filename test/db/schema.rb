@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080915204910) do
+ActiveRecord::Schema.define(:version => 20081118150014) do
 
   create_table "delivery_receipts", :force => true do |t|
     t.integer  "short_message_id"
@@ -22,8 +22,18 @@ ActiveRecord::Schema.define(:version => 20080915204910) do
   add_index "delivery_receipts", ["tracking_id"], :name => "index_delivery_receipts_on_tracking_id"
   add_index "delivery_receipts", ["short_message_id"], :name => "index_delivery_receipts_on_short_message_id"
 
+  create_table "incoming_short_messages", :force => true do |t|
+    t.string "country",    :limit => 2
+    t.string "operator",   :limit => 20
+    t.string "shortcode",  :limit => 15
+    t.string "sender"
+    t.text   "text"
+    t.string "session_id", :limit => 40
+  end
+
   create_table "short_messages", :force => true do |t|
     t.string   "destination"
+    t.integer  "price"
     t.text     "body"
     t.string   "originator"
     t.string   "originator_type"

@@ -3,13 +3,16 @@ development:
   username: user
   password: secret
   sms_url: http://sms.gateway.com/sms.php
+  psms_url: http://sms.gateway.com/sendsms.php
   
 test:
   username: user
   password: secret
   sms_url: http://sms.gateway.com/sms.php
+  psms_url: http://sms.gateway.com/sendsms.php
   
 production:
   username: user
   password: secret
   sms_url: http://sms.gateway.com/sms.php
+  psms_url: http://sms.gateway.com/sendsms.php  
