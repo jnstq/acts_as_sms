@@ -7,6 +7,30 @@ ActionController::Routing::Routes.draw do |map|
   map.delivery_report 'delivery_receipts/report', :controller => 'delivery_receipts', :action => 'report'
   map.resources :short_messages
 
+  map.incoming_sms 'incoming_short_messages/incoming', :controller => 'incoming_short_messages', :action => 'incoming'
+  map.delivery_report 'delivery_receipts/report', :controller => 'delivery_receipts', :action => 'report'
+  map.resources :short_messages
+
+  map.incoming_sms 'incoming_short_messages/incoming', :controller => 'incoming_short_messages', :action => 'incoming'
+  map.delivery_report 'delivery_receipts/report', :controller => 'delivery_receipts', :action => 'report'
+  map.resources :short_messages
+
+  map.incoming_sms 'incoming_short_messages/incoming', :controller => 'incoming_short_messages', :action => 'incoming'
+  map.delivery_report 'delivery_receipts/report', :controller => 'delivery_receipts', :action => 'report'
+  map.resources :short_messages
+
+  map.incoming_sms 'incoming_short_messages/incoming', :controller => 'incoming_short_messages', :action => 'incoming'
+  map.delivery_report 'delivery_receipts/report', :controller => 'delivery_receipts', :action => 'report'
+  map.resources :short_messages
+
+  map.incoming_sms 'incoming_short_messages/incoming', :controller => 'incoming_short_messages', :action => 'incoming'
+  map.delivery_report 'delivery_receipts/report', :controller => 'delivery_receipts', :action => 'report'
+  map.resources :short_messages
+
+  map.incoming_sms 'incoming_short_messages/incoming', :controller => 'incoming_short_messages', :action => 'incoming'
+  map.delivery_report 'delivery_receipts/report', :controller => 'delivery_receipts', :action => 'report'
+  map.resources :short_messages
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

@@ -243,6 +243,13 @@ describe ShortMessage do
       @short_message.extract_options_for_sms.should_not have_key(:type)
     end
     
+    it "should parse response from premium sms" do
+      lambda {
+        @short_message.class.stub!(:post).and_return("Ok: 1:1227027450987:0046708569727")
+        @short_message.send_message
+      }.should_not raise_error
+    end
+    
   end
 
 

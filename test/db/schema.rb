@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081118150014) do
+ActiveRecord::Schema.define(:version => 20081118160750) do
 
   create_table "delivery_receipts", :force => true do |t|
     t.integer  "short_message_id"
