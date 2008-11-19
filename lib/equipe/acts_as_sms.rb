@@ -3,6 +3,7 @@ require "httparty"
 
 module Equipe
   module ActsAsSms
+    class GatewayError < StandardError; end
     FIELDS_WITH_DEFAULT_VALUES = [:message_type, :originator_type, :originator]
 
     def self.included(base)
@@ -81,12 +82,12 @@ module Equipe
       def send_message
         if save
           response = self.class.post(send_sms_url, {:query => extract_options_for_sms})
-          if response =~ /^(OK|Error):\s{1}(.*)$/
+          if response =~ /^(OK|ERROR):\s{1}(\S+)$/i
             case :"#{$1.downcase}"
             when :ok
               save_tracking_ids($2.split(/,/))
             when :error
-              fail "Error message from gateway: #{$2}"
+              raise GatewayError, "Error message from gateway: #{$2}"
             end
           else
             fail "Unknown response from gateway: #{response}"

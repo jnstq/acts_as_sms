@@ -243,13 +243,6 @@ describe ShortMessage do
       @short_message.extract_options_for_sms.should_not have_key(:type)
     end
     
-    it "should parse response from premium sms" do
-      lambda {
-        @short_message.class.stub!(:post).and_return("Ok: 1:1227027450987:0046708569727")
-        @short_message.send_message
-      }.should_not raise_error
-    end
-    
   end
 
 
@@ -259,11 +252,18 @@ describe ShortMessage do
       @short_message = ShortMessage.new(@valid_attributes)
       @short_message.class.stub!(:post).and_return("OK: fc444ec93ac7ebdf6a93816a11d23041")
     end
-
+    
     it "should send a standard sms with less then 160 chars" do
       @short_message.class.should_receive(:post).and_return("OK: fc444ec93ac7ebdf6a93816a11d23041")
       @short_message.send_message
     end
+
+    it "should parse response from premium sms" do
+      lambda {
+        @short_message.class.stub!(:post).and_return("Ok: 1:1227027450987:0046708569727")
+        @short_message.send_message
+      }.should_not raise_error
+    end    
 
     it "should create a delivery receipt with response from cellsynt" do
       @short_message.send_message
