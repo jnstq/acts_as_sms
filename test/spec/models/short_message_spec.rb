@@ -82,10 +82,12 @@ describe ShortMessage do
     end
 
     describe "orginator_type" do
+      
       it "should not allow blank else as originator type" do
         @short_message = ShortMessage.new(@valid_attributes.merge(:originator_type => ""))
         @short_message.should_not be_valid
       end
+      
       it "should not allow nil else as originator type" do
         @short_message = ShortMessage.new(@valid_attributes)
         @short_message.originator_type = nil
@@ -93,32 +95,41 @@ describe ShortMessage do
       end
 
       describe "numeric" do
+        
         before(:each) do
           @short_message = ShortMessage.new(@valid_attributes.merge(:originator_type => 'numeric'))
         end
+        
         it "should be valid" do
           @short_message.should be_valid
         end
+        
         it "should allow up to 15 chars" do
           @short_message.should validate_length_of(:originator, :within => 1..15)
         end
+        
         it "should validate format of originator" do
           @short_message.originator = "0046707293274"
           @short_message.should_not be_valid
         end
+        
         it "should be valid format of originator" do
           @short_message.originator = "46707293274"
           @short_message.should be_valid
         end
+        
       end
 
       describe "shortcode" do
+        
         before(:each) do
           @short_message = ShortMessage.new(@valid_attributes.merge(:originator_type => "shortcode"))
         end
+        
         it "should allow shortcode as originator type" do
           @short_message.should be_valid
         end
+        
         it "should allow up to 15 chars" do
           @short_message.should validate_length_of(:originator, :within => 1..15)
         end
@@ -152,26 +163,40 @@ describe ShortMessage do
       @short_message = ShortMessage.new
       ShortMessage.acts_as_sms_options[:allow_concat] = 6
     end
+
     it "should have default settings for type given at setup" do
       @short_message.message_type.should eql('text')
     end
+
     it "should have default settings for originator type given at setup" do
       @short_message.originator_type.should eql('alpha')
     end
+
     it "should have default settings for originator given at setup" do
       @short_message.originator.should eql('COMPANYNAME')
     end
+
     it "should have default setting for allow concat" do
       @short_message.acts_as_sms_options[:allow_concat].should eql(6)
     end
+
     it "should have max body text length" do
       ShortMessage.acts_as_sms_options[:allow_concat] = 6
       @short_message.max_length.should eql(918) # 6 * 153
     end
+
     it "should have max body text dependent on allow concat" do
       ShortMessage.acts_as_sms_options[:allow_concat] = 1
       @short_message.max_length.should eql(160)
     end
+    
+    it "should only set default when new record" do
+      @short_message = ShortMessage.create @valid_attributes
+      @short_message.message_type = nil
+      @short_message.save
+      ShortMessage.find(@short_message.id).message_type.should be_nil      
+    end
+
   end
 
   describe "configuration file from disk" do

@@ -81,21 +81,19 @@ module Equipe
 
       def send_message
         if save
-          response = self.class.post(send_sms_url, {:query => extract_options_for_sms})
-          if response =~ /^(OK|ERROR):\s{1}(\S+)$/i
-            case :"#{$1.downcase}"
-            when :ok
-              save_tracking_ids($2.split(/,/))
-            when :error
-              raise GatewayError, "Error message from gateway: #{$2}"
-            end
-          else
-            fail "Unknown response from gateway: #{response}"
+          response = perform_sms_post
+          raise GatewayError, "Unknown response: #{response}" unless response =~ /^(OK|ERROR):\s{1}(\S+)$/i
+          case :"#{$1.downcase}"
+          when :ok
+            save_tracking_ids($2.split(/,/))
+          when :error
+            raise GatewayError, $2
           end
         end
       end
 
       def after_initialize
+        return unless new_record?
         Equipe::ActsAsSms::FIELDS_WITH_DEFAULT_VALUES.each do |key|
           send(:"#{key}=", acts_as_sms_options[key]) if send(key).nil? && acts_as_sms_options.has_key?(key)
         end
@@ -134,6 +132,10 @@ module Equipe
       end
 
       private
+
+      def perform_sms_post
+        self.class.post(send_sms_url, {:query => extract_options_for_sms})
+      end
 
       def sms_url
         sms_configuration["sms_url"]
