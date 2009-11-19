@@ -9,37 +9,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081118160750) do
-
-  create_table "delivery_receipts", :force => true do |t|
-    t.integer  "short_message_id"
-    t.string   "tracking_id",      :limit => 32
-    t.string   "status",           :limit => 20
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "delivery_receipts", ["tracking_id"], :name => "index_delivery_receipts_on_tracking_id"
-  add_index "delivery_receipts", ["short_message_id"], :name => "index_delivery_receipts_on_short_message_id"
-
-  create_table "incoming_short_messages", :force => true do |t|
-    t.string "country",    :limit => 2
-    t.string "operator",   :limit => 20
-    t.string "shortcode",  :limit => 15
-    t.string "sender"
-    t.text   "text"
-    t.string "session_id", :limit => 40
-  end
-
-  create_table "short_messages", :force => true do |t|
-    t.string   "destination"
-    t.integer  "price"
-    t.text     "body"
-    t.string   "originator"
-    t.string   "originator_type"
-    t.string   "message_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 0) do
 
 end

@@ -81,13 +81,16 @@ module Equipe
 
       def send_message
         if save
-          response = perform_sms_post
-          raise GatewayError, "Unknown response: #{response}" unless response =~ /^(OK|ERROR):\s{1}(\S+)$/i
-          case :"#{$1.downcase}"
-          when :ok
-            save_tracking_ids($2.split(/,/))
-          when :error
-            raise GatewayError, $2
+          response = perform_sms_post.strip
+          if response =~ /(OK|ERROR):\s*(\S+)/i
+            case $1.downcase
+            when 'ok'
+              save_tracking_ids($2.split(/,/))
+            when 'error'
+              raise GatewayError, $2
+            end
+          else
+            raise GatewayError, "Unknown response: #{response}"
           end
         end
       end
