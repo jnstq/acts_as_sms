@@ -32,6 +32,6 @@ class <%= migration_name %> < ActiveRecord::Migration
     remove_index :<%= delivery_receipt_table_name %>, :tracking_id
     drop_table :<%= short_message_table_name %>
     drop_table :<%= delivery_receipt_table_name %>
-    drop_table :incoming_short_message
+    drop_table :incoming_short_messages
   end
 end
