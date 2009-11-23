@@ -32,7 +32,7 @@ module Equipe
       private
 
       def validation_for_sms_message
-        validates_inclusion_of :originator_type, :in => %w[numeric shortcode alpha], :allow_blank => false, :allow_nil => false
+        validates_inclusion_of :originator_type, :in => %w[numeric shortcode alpha], :allow_blank => false, :allow_nil => false, :unless => :price?
         validates_length_of :originator, :within => 1..15, :if => Proc.new{|sms| sms.originator_type_is_numeric? || sms.originator_type_is_shortcode?}
         validates_format_of :originator, :with => /^[^00]\d+$/, :if => :originator_type_is_numeric?
         validates_format_of :originator, :with => /^[a-zA-Z0-9]{1,11}$/, :if => :originator_type_is_alpha?
