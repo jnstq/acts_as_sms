@@ -120,6 +120,7 @@ module Equipe
           options[:password] = sms_configuration["password"]
           options[:destination] = destination unless premium_sms?
           options[:sessionid] = destination if premium_sms?
+          options[:price] = price if premium_sms?
           options[:text] = body
           options[:originatortype] = originator_type unless premium_sms?
           options[:originator] = originator unless premium_sms?
