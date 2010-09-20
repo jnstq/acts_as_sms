@@ -22,8 +22,9 @@ module Equipe
           include HTTParty
           class_eval do
             validation_for_sms_message
-            has_many :delivery_receipts, :class_name => options[:delivery_receipt_class_name]
-            alias_attribute :session_id, :destination
+            has_many          :delivery_receipts, :class_name => options[:delivery_receipt_class_name]
+            alias_attribute   :session_id, :destination
+            after_initialize  :assign_default_values
           end
         end
         acts_as_sms_options.update(options)
@@ -95,7 +96,7 @@ module Equipe
         end
       end
 
-      def after_initialize
+      def assign_default_values
         return unless new_record?
         Equipe::ActsAsSms::FIELDS_WITH_DEFAULT_VALUES.each do |key|
           send(:"#{key}=", acts_as_sms_options[key]) if send(key).nil? && acts_as_sms_options.has_key?(key)
